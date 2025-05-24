@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment - DermaCare Clinic</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +254 712 345 678</span>
+                    <span><i class="fas fa-envelope"></i> info@dermacare.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <nav>
+                <div class="logo">
+                    <h1>DermaCare</h1>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="booking.html" class="active">Book Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Book an Appointment</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / Book Appointment
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-grid">
+                <div class="booking-info">
+                    <h2>Schedule Your Visit</h2>
+                    <p>Book an appointment with our dermatology specialists. Please fill out the form with your details and preferred appointment time.</p>
+                    
+                    <div class="booking-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Fill the Form</h3>
+                                <p>Complete the appointment request form with your personal details and skin concerns.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Confirmation</h3>
+                                <p>Receive a confirmation email with your appointment details.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Consultation</h3>
+                                <p>Visit our clinic for your scheduled appointment with our specialists.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-notice">
+                        <h3><i class="fas fa-info-circle"></i> Important Information</h3>
+                        <ul>
+                            <li>Please arrive 15 minutes before your scheduled appointment.</li>
+                            <li>Bring any previous medical records related to your skin condition.</li>
+                            <li>If you need to cancel or reschedule, please do so at least 24 hours in advance.</li>
+                            <li>For emergency skin conditions, please call our office directly.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="booking-form-container">
+                    <form id="appointmentForm" class="booking-form">
+                        <div class="form-header">
+                            <h3>Appointment Request Form</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dob">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Required <span class="required">*</span></label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="general-consultation">General Dermatology Consultation</option>
+                                <option value="acne-treatment">Acne Treatment</option>
+                                <option value="skin-cancer-screening">Skin Cancer Screening</option>
+                                <option value="cosmetic-consultation">Cosmetic Dermatology Consultation</option>
+                                <option value="pediatric-dermatology">Pediatric Dermatology</option>
+                                <option value="mole-removal">Mole Removal</option>
+                                <option value="laser-treatment">Laser Treatment</option>
+                                <option value="other">Other (Please specify)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="otherServiceGroup" style="display: none;">
+                            <label for="otherService">Please Specify Service</label>
+                            <input type="text" id="otherService" name="otherService">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="doctor">Preferred Doctor (Optional)</label>
+                            <select id="doctor" name="doctor">
+                                <option value="">No preference</option>
+                                <option value="dr-johnson">Dr. Sarah Johnson</option>
+                                <option value="dr-chen">Dr. Michael Chen</option>
+                                <option value="dr-ochieng">Dr. Amina Ochieng</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="appointmentDate">Preferred Date <span class="required">*</span></label>
+                                <input type="date" id="appointmentDate" name="appointmentDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Preferred Time <span class="required">*</span></label>
+                                <select id="appointmentTime" name="appointmentTime" required>
+                                    <option value="">Select time</option>
+                                    <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+                                    <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+                                    <option value="evening">Evening (4:00 PM - 6:00 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="symptoms">Describe Your Skin Concern</label>
+                            <textarea id="symptoms" name="symptoms" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="firstVisit">Is this your first visit?</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="firstVisit" value="yes" checked> Yes
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="firstVisit" value="no"> No
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="termsAgree" name="termsAgree" required>
+                                I agree to the <a href="#">terms and conditions</a> <span class="required">*</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Book Appointment</button>
+                            <button type="reset" class="btn btn-outline">Reset Form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Section -->
+    <section class="insurance-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Insurance Partners</h2>
+                <p>We accept a wide range of insurance providers</p>
+            </div>
+            <div class="insurance-logos">
+                <div class="insurance-logo">
+                    <img src="https://placehold.co/200x100" alt="Insurance Provider 1">
+                </div>
+                <div class="insurance-logo">
+                    <img src="https://placehold.co/200x100" alt="Insurance Provider 2">
+                </div>
+                <div class="insurance-logo">
+                    <img src="https://placehold.co/200x100" alt="Insurance Provider 3">
+                </div>
+                <div class="insurance-logo">
+                    <img src="https://placehold.co/200x100" alt="Insurance Provider 4">
+                </div>
+                <div class="insurance-logo">
+                    <img src="https://placehold.co/200x100" alt="Insurance Provider 5">
+                </div>
+            </div>
+            <p class="insurance-note">If you don't see your insurance provider listed, please contact our office to verify coverage.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about appointments and consultations</p>
+            </div>
+            <div class="faq-container" id="faqContainer">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does a typical appointment last?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Initial consultations typically last 30-45 minutes, while follow-up appointments are usually 15-30 minutes depending on the complexity of your condition.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What should I bring to my first appointment?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Please bring your ID, insurance card, a list of current medications, any previous dermatology records, and a list of questions or concerns you'd like to discuss.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer virtual consultations?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer telemedicine appointments for certain conditions. Please call our office to determine if your concern is suitable for a virtual consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How far in advance should I book my appointment?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For routine appointments, we recommend booking 2-3 weeks in advance. For urgent concerns, we offer same-week appointments when possible.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your cancellation policy?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We request that you notify us at least 24 hours in advance if you need to cancel or reschedule your appointment. Late cancellations or no-shows may incur a fee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>DermaCare</h3>
+                    <p>Providing exceptional dermatological care with a patient-centered approach since 2005.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Our Doctors</a></li>
+                        <li><a href="booking.html">Book Appointment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="services.html#cancer">Skin Cancer Screening</a></li>
+                        <li><a href="services.html#surgical">Surgical Dermatology</a></li>
+                        <li><a href="services.html#pediatric">Pediatric Dermatology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Kenyatta Avenue, Nairobi</li>
+                        <li><i class="fas fa-phone"></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@dermacare.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DermaCare Clinic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Appointment Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-check-circle"></i>
+                <h2>Appointment Request Submitted</h2>
+            </div>
+            <div class="modal-body">
+                <p>Thank you for requesting an appointment with DermaCare Clinic. We have received your information and will contact you shortly to confirm your appointment details.</p>
+                <div class="appointment-summary" id="appointmentSummary">
+                    <!-- Appointment details will be inserted here by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="closeModal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

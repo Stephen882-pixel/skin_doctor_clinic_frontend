@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - DermaCare Clinic</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for services page */
+        .service-detail {
+            padding: 80px 0;
+            background-color: var(--background-light);
+        }
+        
+        .service-detail:nth-child(even) {
+            background-color: var(--background-color);
+        }
+        
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .service-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .service-text h3 {
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+            color: var(--text-color);
+        }
+        
+        .service-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .service-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .service-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-color);
+        }
+        
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .service-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .pricing-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            margin-top: 30px;
+        }
+        
+        .pricing-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--background-dark);
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-item span:last-child {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .treatment-process {
+            background-color: var(--primary-light);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .treatment-process h4 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .process-step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: 600;
+        }
+        
+        .process-step h5 {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 992px) {
+            .service-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .service-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-text h2 {
+                font-size: 2rem;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +254 712 345 678</span>
+                    <span><i class="fas fa-envelope"></i> info@dermacare.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <nav>
+                <div class="logo">
+                    <h1>DermaCare</h1>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="booking.html">Book Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Our Services</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / Services
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Dermatology Section -->
+    <section id="medical" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Medical Dermatology</h2>
+                    <p>Our medical dermatology services focus on the diagnosis and treatment of various skin conditions, from common concerns to complex dermatological diseases. Our board-certified dermatologists use evidence-based approaches to provide effective treatment plans.</p>
+                    
+                    <h3>Conditions We Treat</h3>
+                    <ul class="service-list">
+                        <li>Acne and acne scarring</li>
+                        <li>Eczema and atopic dermatitis</li>
+                        <li>Psoriasis and psoriatic arthritis</li>
+                        <li>Rosacea and facial redness</li>
+                        <li>Skin infections (bacterial, viral, fungal)</li>
+                        <li>Hair loss and alopecia</li>
+                        <li>Nail disorders</li>
+                        <li>Autoimmune skin conditions</li>
+                        <li>Allergic skin reactions</li>
+                        <li>Chronic skin conditions</li>
+                    </ul>
+                    
+                    <div class="treatment-process">
+                        <h4>Our Treatment Process</h4>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h5>Consultation</h5>
+                                <p>Comprehensive skin examination and medical history review</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h5>Diagnosis</h5>
+                                <p>Accurate diagnosis using advanced diagnostic tools</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h5>Treatment Plan</h5>
+                                <p>Personalized treatment strategy tailored to your needs</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h5>Follow-up</h5>
+                                <p>Regular monitoring and treatment adjustments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://placehold.co/600x400" alt="Medical Dermatology">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cosmetic Dermatology Section -->
+    <section id="cosmetic" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-image">
+                    <img src="https://placehold.co/600x400" alt="Cosmetic Dermatology">
+                </div>
+                <div class="service-text">
+                    <h2>Cosmetic Dermatology</h2>
+                    <p>Enhance your natural beauty with our comprehensive cosmetic dermatology services. Our experienced team combines artistry with medical expertise to deliver natural-looking results that boost your confidence.</p>
+                    
+                    <h3>Popular Treatments</h3>
+                    <ul class="service-list">
+                        <li>Botox and Dysport injections</li>
+                        <li>Dermal fillers (Juvederm, Restylane)</li>
+                        <li>Chemical peels</li>
+                        <li>Microneedling and PRP therapy</li>
+                        <li>Laser skin resurfacing</li>
+                        <li>IPL photofacials</li>
+                        <li>Skin tightening treatments</li>
+                        <li>Scar reduction therapy</li>
+                        <li>Pigmentation treatment</li>
+                        <li>Anti-aging treatments</li>
+                    </ul>
+                    
+                    <div class="pricing-card">
+                        <h4>Popular Treatment Pricing</h4>
+                        <div class="price-item">
+                            <span>Botox (per unit)</span>
+                            <span>KSh 1,500</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Dermal Fillers</span>
+                            <span>KSh 45,000 - 80,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Chemical Peel</span>
+                            <span>KSh 15,000 - 35,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Microneedling</span>
+                            <span>KSh 25,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span>IPL Photofacial</span>
+                            <span>KSh 30,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skin Cancer Screening Section -->
+    <section id="cancer" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Skin Cancer Screening</h2>
+                    <p>Early detection saves lives. Our comprehensive skin cancer screening services use advanced technology and expert clinical examination to detect skin cancer in its earliest, most treatable stages.</p>
+                    
+                    <h3>What We Screen For</h3>
+                    <ul class="service-list">
+                        <li>Melanoma</li>
+                        <li>Basal cell carcinoma</li>
+                        <li>Squamous cell carcinoma</li>
+                        <li>Precancerous lesions</li>
+                        <li>Atypical moles</li>
+                        <li>Suspicious skin changes</li>
+                    </ul>
+                    
+                    <h3>Who Should Get Screened?</h3>
+                    <ul class="service-list">
+                        <li>Adults over 40 years old</li>
+                        <li>People with fair skin</li>
+                        <li>Those with family history of skin cancer</li>
+                        <li>Individuals with many moles</li>
+                        <li>People with history of sun exposure</li>
+                        <li>Anyone with changing moles</li>
+                    </ul>
+                    
+                    <div class="treatment-process">
+                        <h4>Screening Process</h4>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h5>Full Body Exam</h5>
+                                <p>Comprehensive examination of all skin areas</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h5>Dermoscopy</h5>
+                                <p>Advanced imaging for detailed mole analysis</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h5>Documentation</h5>
+                                <p>Digital mapping of moles for future comparison</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h5>Results</h5>
+                                <p>Immediate results and follow-up recommendations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://placehold.co/600x400" alt="Skin Cancer Screening">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Surgical Dermatology Section -->
+    <section id="surgical" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-image">
+                    <img src="https://placehold.co/600x400" alt="Surgical Dermatology">
+                </div>
+                <div class="service-text">
+                    <h2>Surgical Dermatology</h2>
+                    <p>Our surgical dermatology services provide expert treatment for skin conditions requiring surgical intervention. We use minimally invasive techniques to ensure optimal results with minimal scarring.</p>
+                    
+                    <h3>Surgical Procedures</h3>
+                    <ul class="service-list">
+                        <li>Skin cancer removal</li>
+                        <li>Mohs micrographic surgery</li>
+                        <li>Mole removal and biopsy</li>
+                        <li>Cyst removal</li>
+                        <li>Lipoma excision</li>
+                        <li>Scar revision</li>
+                        <li>Skin tag removal</li>
+                        <li>Keloid treatment</li>
+                        <li>Nail surgery</li>
+                        <li>Reconstructive procedures</li>
+                    </ul>
+                    
+                    <h3>Why Choose Our Surgical Services?</h3>
+                    <ul class="service-list">
+                        <li>Board-certified dermatologic surgeons</li>
+                        <li>State-of-the-art surgical facility</li>
+                        <li>Minimally invasive techniques</li>
+                        <li>Excellent cosmetic outcomes</li>
+                        <li>Comprehensive post-operative care</li>
+                        <li>Same-day procedures available</li>
+                    </ul>
+                    
+                    <div class="pricing-card">
+                        <h4>Surgical Procedure Pricing</h4>
+                        <div class="price-item">
+                            <span>Simple Mole Removal</span>
+                            <span>KSh 15,000 - 25,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Cyst Removal</span>
+                            <span>KSh 20,000 - 40,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Skin Cancer Excision</span>
+                            <span>KSh 50,000 - 100,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Scar Revision</span>
+                            <span>KSh 30,000 - 80,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pediatric Dermatology Section -->
+    <section id="pediatric" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Pediatric Dermatology</h2>
+                    <p>Specialized care for infants, children, and adolescents with skin conditions. Our pediatric dermatologists understand the unique needs of young patients and provide gentle, effective treatment in a child-friendly environment.</p>
+                    
+                    <h3>Common Pediatric Conditions</h3>
+                    <ul class="service-list">
+                        <li>Eczema and atopic dermatitis</li>
+                        <li>Diaper rash and contact dermatitis</li>
+                        <li>Birthmarks and vascular lesions</li>
+                        <li>Warts and molluscum contagiosum</li>
+                        <li>Acne in teenagers</li>
+                        <li>Skin infections</li>
+                        <li>Hair and nail disorders</li>
+                        <li>Genetic skin conditions</li>
+                        <li>Allergic reactions</li>
+                        <li>Psoriasis in children</li>
+                    </ul>
+                    
+                    <h3>Our Approach</h3>
+                    <ul class="service-list">
+                        <li>Child-friendly examination techniques</li>
+                        <li>Parent education and involvement</li>
+                        <li>Gentle treatment methods</li>
+                        <li>Age-appropriate communication</li>
+                        <li>Comfortable clinic environment</li>
+                        <li>Specialized pediatric equipment</li>
+                    </ul>
+                    
+                    <div class="treatment-process">
+                        <h4>Pediatric Care Process</h4>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h5>Comfort First</h5>
+                                <p>Creating a comfortable environment for your child</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h5>Gentle Examination</h5>
+                                <p>Age-appropriate examination techniques</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h5>Family Education</h5>
+                                <p>Teaching parents about home care</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h5>Follow-up Care</h5>
+                                <p>Monitoring progress and adjusting treatment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://placehold.co/600x400" alt="Pediatric Dermatology">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinical Research Section -->
+    <section id="research" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-image">
+                    <img src="https://placehold.co/600x400" alt="Clinical Research">
+                </div>
+                <div class="service-text">
+                    <h2>Clinical Research</h2>
+                    <p>Participate in cutting-edge clinical trials and research studies that advance dermatological care. Our research department conducts FDA-approved studies for new treatments and medications.</p>
+                    
+                    <h3>Current Research Areas</h3>
+                    <ul class="service-list">
+                        <li>Psoriasis treatment studies</li>
+                        <li>Atopic dermatitis research</li>
+                        <li>Acne medication trials</li>
+                        <li>Skin cancer prevention studies</li>
+                        <li>Anti-aging treatment research</li>
+                        <li>Hair loss therapy trials</li>
+                        <li>Cosmetic procedure studies</li>
+                        <li>Dermatitis treatment research</li>
+                    </ul>
+                    
+                    <h3>Benefits of Participation</h3>
+                    <ul class="service-list">
+                        <li>Access to new treatments before public availability</li>
+                        <li>Close monitoring by research specialists</li>
+                        <li>Potential cost savings on treatment</li>
+                        <li>Contributing to medical advancement</li>
+                        <li>Comprehensive care and follow-up</li>
+                        <li>Detailed health assessments</li>
+                    </ul>
+                    
+                    <div class="treatment-process">
+                        <h4>Research Participation Process</h4>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h5>Screening</h5>
+                                <p>Determine eligibility for research studies</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h5>Informed Consent</h5>
+                                <p>Detailed explanation of study procedures</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h5>Study Participation</h5>
+                                <p>Regular visits and treatment monitoring</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h5>Follow-up</h5>
+                                <p>Long-term monitoring and care</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Skin Health Journey?</h2>
+                <p>Schedule a consultation with our dermatology specialists today and discover the best treatment options for your skin concerns.</p>
+                <div class="booking-buttons">
+                    <a href="booking.html" class="btn btn-primary">Book an Appointment</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>DermaCare</h3>
+                    <p>Providing exceptional dermatological care with a patient-centered approach since 2005.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Our Doctors</a></li>
+                        <li><a href="booking.html">Book Appointment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="services.html#cancer">Skin Cancer Screening</a></li>
+                        <li><a href="services.html#surgical">Surgical Dermatology</a></li>
+                        <li><a href="services.html#pediatric">Pediatric Dermatology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Kenyatta Avenue, Nairobi</li>
+                        <li><i class="fas fa-phone"></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@dermacare.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DermaCare Clinic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

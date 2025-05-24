@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DermaCare Clinic</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles specific to About page */
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            margin-bottom: 60px;
+        }
+        
+        .about-image-full {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 40px;
+        }
+        
+        .mission-vision-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .mission-card, .vision-card, .values-card {
+            background-color: var(--background-light);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .mission-card i, .vision-card i, .values-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .history-section {
+            padding: 80px 0;
+            background-color: var(--background-light);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-year {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: var(--background-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-photo {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .team-photo img {
+            transform: scale(1.05);
+        }
+        
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .team-info h3 {
+            margin-bottom: 5px;
+        }
+        
+        .team-position {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .team-social a {
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +254 712 345 678</span>
+                    <span><i class="fas fa-envelope"></i> info@dermacare.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <nav>
+                <div class="logo">
+                    <h1>DermaCare</h1>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="booking.html">Book Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>About DermaCare</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / About Us
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="section-header">
+                    <h2>Our Story</h2>
+                    <p>Dedicated to excellence in dermatological care since 2005</p>
+                </div>
+                
+                <div class="about-image-full">
+                    <img src="https://placehold.co/1200x500" alt="DermaCare Clinic">
+                </div>
+                
+                <p>DermaCare Clinic was founded in 2005 by Dr. Sarah Johnson with a vision to provide exceptional dermatological care to patients of all ages. What began as a small practice has grown into one of the leading dermatology clinics in Kenya, known for its patient-centered approach and commitment to excellence.</p>
+                
+                <p>Our team of board-certified dermatologists combines extensive experience with the latest medical advancements to deliver personalized treatment plans for all skin types and conditions. We believe in a holistic approach to skin health, addressing both medical concerns and aesthetic goals to help our patients look and feel their best.</p>
+                
+                <p>At DermaCare, we understand that skin conditions can significantly impact a person's quality of life. That's why we are committed to providing compassionate care in a comfortable and welcoming environment. Our state-of-the-art facility is equipped with the latest technology to ensure accurate diagnoses and effective treatments.</p>
+            </div>
+            
+            <div class="mission-vision-values">
+                <div class="mission-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To provide exceptional dermatological care that improves the health and appearance of our patients' skin, enhancing their quality of life and self-confidence.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To be the premier dermatology clinic in East Africa, recognized for clinical excellence, innovative treatments, and outstanding patient satisfaction.</p>
+                </div>
+                
+                <div class="values-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Our Values</h3>
+                    <ul>
+                        <li>Excellence in patient care</li>
+                        <li>Integrity and professionalism</li>
+                        <li>Compassion and empathy</li>
+                        <li>Innovation and continuous learning</li>
+                        <li>Accessibility and inclusivity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Journey</h2>
+                <p>Key milestones in our growth and development</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2005</div>
+                        <h3>Foundation</h3>
+                        <p>DermaCare Clinic was established by Dr. Sarah Johnson in a small office in Nairobi with just two examination rooms.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2008</div>
+                        <h3>Expansion</h3>
+                        <p>Due to growing demand, we moved to a larger facility and expanded our team to include two additional dermatologists.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012</div>
+                        <h3>Advanced Technology</h3>
+                        <p>Invested in state-of-the-art diagnostic and treatment equipment, becoming one of the first clinics in Kenya to offer advanced laser treatments.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3>Research Initiative</h3>
+                        <p>Launched our clinical research department to participate in international studies and contribute to advancements in dermatological care.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3>Community Outreach</h3>
+                        <p>Established our community outreach program, providing free skin cancer screenings and dermatological care to underserved communities.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Present Day</h3>
+                        <p>Today, DermaCare is a comprehensive dermatology center with multiple specialists, offering a full range of medical, surgical, and cosmetic dermatology services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Leadership Team</h2>
+                <p>Meet the people behind DermaCare's success</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="https://placehold.co/300x300" alt="Dr. Sarah Johnson">
+                    </div>
+                    <div class="team-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="team-position">Founder & Medical Director</p>
+                        <p>Board-certified dermatologist with over 20 years of experience. Specializes in complex skin conditions and has published numerous research papers.</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="https://placehold.co/300x300" alt="Dr. Michael Chen">
+                    </div>
+                    <div class="team-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p class="team-position">Chief of Cosmetic Dermatology</p>
+                        <p>Internationally trained in advanced cosmetic procedures. Known for his artistic approach to aesthetic treatments and natural-looking results.</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="https://placehold.co/300x300" alt="Dr. Amina Ochieng">
+                    </div>
+                    <div class="team-info">
+                        <h3>Dr. Amina Ochieng</h3>
+                        <p class="team-position">Head of Pediatric Dermatology</p>
+                        <p>Specialized in treating skin conditions in children. Passionate about educating families on skin health and preventive care.</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="https://placehold.co/300x300" alt="Jane Muthoni">
+                    </div>
+                    <div class="team-info">
+                        <h3>Jane Muthoni</h3>
+                        <p class="team-position">Clinic Manager</p>
+                        <p>With a background in healthcare administration, Jane ensures the smooth operation of the clinic and exceptional patient experience.</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Patients Say</h2>
+                <p>Hear from those who have experienced our care</p>
+            </div>
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"After struggling with acne for years, Dr. Johnson's treatment plan completely transformed my skin. The staff is always friendly and the clinic is immaculate. I highly recommend DermaCare!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://placehold.co/100x100" alt="Jane Doe">
+                            <div class="author-info">
+                                <h4>Jane Doe</h4>
+                                <p>Patient since 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The pediatric dermatology team was amazing with my 5-year-old son. Dr. Ochieng made him feel comfortable and explained everything in a way he could understand. His eczema has improved significantly!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://placehold.co/100x100" alt="David Mwangi">
+                            <div class="author-info">
+                                <h4>David Mwangi</h4>
+                                <p>Parent of patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"I've been receiving cosmetic treatments from Dr. Chen for the past year, and the results have been fantastic. Natural-looking and exactly what I wanted. The booking process is also very efficient."</p>
+                        <div class="testimonial-author">
+                            <img src="https://placehold.co/100x100" alt="Sarah Kimani">
+                            <div class="author-info">
+                                <h4>Sarah Kimani</h4>
+                                <p>Patient since 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button id="prevTestimonial" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+                <button id="nextTestimonial" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="booking-preview">
+        <div class="container">
+            <div class="booking-content">
+                <h2>Experience the DermaCare Difference</h2>
+                <p>Schedule your consultation today and take the first step towards healthier skin.</p>
+                <div class="booking-buttons">
+                    <a href="booking.html" class="btn btn-primary">Book an Appointment</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>DermaCare</h3>
+                    <p>Providing exceptional dermatological care with a patient-centered approach since 2005.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Our Doctors</a></li>
+                        <li><a href="booking.html">Book Appointment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="services.html#cancer">Skin Cancer Screening</a></li>
+                        <li><a href="services.html#surgical">Surgical Dermatology</a></li>
+                        <li><a href="services.html#pediatric">Pediatric Dermatology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Kenyatta Avenue, Nairobi</li>
+                        <li><i class="fas fa-phone"></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@dermacare.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DermaCare Clinic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

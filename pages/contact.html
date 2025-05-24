@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DermaCare Clinic</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for contact page */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--background-light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-form-container {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-card-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-card-icon i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .contact-card h4 {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .contact-card a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .contact-card a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .map-section {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+        
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 450px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .hours-section {
+            padding: 80px 0;
+            background-color: var(--background-light);
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .hours-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .hours-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .hours-list {
+            list-style: none;
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--background-dark);
+        }
+        
+        .hours-item:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-day {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .hours-time {
+            color: var(--text-light);
+        }
+        
+        .hours-time.closed {
+            color: var(--error-color);
+        }
+        
+        .emergency-info {
+            background-color: var(--error-color);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .emergency-info h4 {
+            margin-bottom: 10px;
+        }
+        
+        .emergency-info p {
+            margin-bottom: 15px;
+        }
+        
+        .emergency-phone {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .feedback-section {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+        
+        .feedback-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--background-light);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .feedback-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .rating-group {
+            margin-bottom: 25px;
+        }
+        
+        .rating-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .star-rating {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .star {
+            font-size: 1.5rem;
+            color: var(--background-dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .star:hover,
+        .star.active {
+            color: var(--accent-color);
+        }
+        
+        .social-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .social-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .social-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .social-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .social-icons-large {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .social-icon-large {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-icon-large:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .contact-cta {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-cta h4 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-cta p {
+            margin-bottom: 20px;
+        }
+        
+        .quick-contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-contact a {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .quick-contact a:hover {
+            background-color: var(--background-light);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contact-form-container {
+                order: 2;
+            }
+            
+            .contact-info-container {
+                order: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .social-icons-large {
+                gap: 20px;
+            }
+            
+            .social-icon-large {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .quick-contact {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .quick-contact a {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +254 712 345 678</span>
+                    <span><i class="fas fa-envelope"></i> info@dermacare.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <nav>
+                <div class="logo">
+                    <h1>DermaCare</h1>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="booking.html">Book Appointment</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / Contact
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>We're here to help with all your dermatological needs</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info-container">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Visit Our Clinic</h4>
+                        <p>123 Kenyatta Avenue<br>Nairobi CBD, Kenya<br>P.O. Box 12345-00100</p>
+                        <a href="#map">Get Directions</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Call Us</h4>
+                        <p>Main Line: <a href="tel:+254712345678">+254 712 345 678</a></p>
+                        <p>Emergency: <a href="tel:+254700123456">+254 700 123 456</a></p>
+                        <p>Appointments: <a href="tel:+254733987654">+254 733 987 654</a></p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p>General: <a href="mailto:info@dermacare.com">info@dermacare.com</a></p>
+                        <p>Appointments: <a href="mailto:appointments@dermacare.com">appointments@dermacare.com</a></p>
+                        <p>Billing: <a href="mailto:billing@dermacare.com">billing@dermacare.com</a></p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Live Chat</h4>
+                        <p>Available Monday - Friday<br>8:00 AM - 6:00 PM</p>
+                        <a href="#" onclick="openLiveChat()">Start Chat</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactEmail">Email <span class="required">*</span></label>
+                                <input type="email" id="contactEmail" name="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Phone</label>
+                                <input type="tel" id="contactPhone" name="contactPhone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiryType">Type of Inquiry <span class="required">*</span></label>
+                            <select id="inquiryType" name="inquiryType" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="appointment">Appointment Request</option>
+                                <option value="general">General Information</option>
+                                <option value="billing">Billing Question</option>
+                                <option value="insurance">Insurance Inquiry</option>
+                                <option value="feedback">Feedback/Complaint</option>
+                                <option value="research">Research Participation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">Subject <span class="required">*</span></label>
+                            <input type="text" id="contactSubject" name="contactSubject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Message <span class="required">*</span></label>
+                            <textarea id="contactMessage" name="contactMessage" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferredContact">Preferred Contact Method</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="preferredContact" value="email" checked> Email
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="preferredContact" value="phone"> Phone
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="preferredContact" value="either"> Either
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletterSubscribe" name="newsletterSubscribe">
+                                Subscribe to our newsletter for health tips and updates
+                            </label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacyAgree" name="privacyAgree" required>
+                                I agree to the <a href="#">privacy policy</a> <span class="required">*</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="reset" class="btn btn-outline">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Find Us</h2>
+                <p>Located in the heart of Nairobi CBD for easy access</p>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.819917806228!2d36.81963591475772!3d-1.2833562990669648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d8eeeee6eb%3A0x9b527c3c6c5f5b53!2sNairobi%20CBD%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1621345678901!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section class="hours-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Clinic Hours</h2>
+                <p>We're here when you need us most</p>
+            </div>
+            
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>Regular Hours</h3>
+                    <ul class="hours-list">
+                        <li class="hours-item">
+                            <span class="hours-day">Monday</span>
+                            <span class="hours-time">8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Tuesday</span>
+                            <span class="hours-time">8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Wednesday</span>
+                            <span class="hours-time">8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Thursday</span>
+                            <span class="hours-time">8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Friday</span>
+                            <span class="hours-time">8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Saturday</span>
+                            <span class="hours-time">9:00 AM - 3:00 PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Sunday</span>
+                            <span class="hours-time closed">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="hours-card">
+                    <h3>Emergency Services</h3>
+                    <ul class="hours-list">
+                        <li class="hours-item">
+                            <span class="hours-day">24/7 Emergency Line</span>
+                            <span class="hours-time">+254 700 123 456</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Urgent Care</span>
+                            <span class="hours-time">By Appointment</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Weekend Emergencies</span>
+                            <span class="hours-time">On-Call Doctor</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="emergency-info">
+                        <h4>Medical Emergency?</h4>
+                        <p>For life-threatening emergencies, call 999 or go to the nearest emergency room.</p>
+                        <div class="emergency-phone">Emergency: +254 700 123 456</div>
+                    </div>
+                </div>
+                
+                <div class="hours-card">
+                    <h3>Special Services</h3>
+                    <ul class="hours-list">
+                        <li class="hours-item">
+                            <span class="hours-day">Telemedicine</span>
+                            <span class="hours-time">Mon-Fri 8AM-8PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Lab Results</span>
+                            <span class="hours-time">24/7 Online Portal</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Prescription Refills</span>
+                            <span class="hours-time">Online Requests</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="hours-day">Insurance Verification</span>
+                            <span class="hours-time">Mon-Fri 9AM-5PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="feedback-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Share Your Experience</h2>
+                <p>Your feedback helps us improve our services</p>
+            </div>
+            
+            <form id="feedbackForm" class="feedback-form">
+                <h3>Patient Feedback Form</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="patientName">Name (Optional)</label>
+                        <input type="text" id="patientName" name="patientName">
+                    </div>
+                    <div class="form-group">
+                        <label for="visitDate">Date of Visit</label>
+                        <input type="date" id="visitDate" name="visitDate">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="doctorSeen">Doctor/Staff Member</label>
+                    <select id="doctorSeen" name="doctorSeen">
+                        <option value="">Select doctor/staff</option>
+                        <option value="dr-johnson">Dr. Sarah Johnson</option>
+                        <option value="dr-chen">Dr. Michael Chen</option>
+                        <option value="dr-ochieng">Dr. Amina Ochieng</option>
+                        <option value="dr-mwangi">Dr. James Mwangi</option>
+                        <option value="dr-wanjiku">Dr. Grace Wanjiku</option>
+                        <option value="dr-kiprotich">Dr. Robert Kiprotich</option>
+                        <option value="staff">Support Staff</option>
+                    </select>
+                </div>
+                
+                <div class="rating-group">
+                    <label>Overall Experience</label>
+                    <div class="star-rating" data-rating="overall">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="overallRating" name="overallRating" value="">
+                </div>
+                
+                <div class="rating-group">
+                    <label>Doctor/Staff Professionalism</label>
+                    <div class="star-rating" data-rating="professionalism">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="professionalismRating" name="professionalismRating" value="">
+                </div>
+                
+                <div class="rating-group">
+                    <label>Clinic Facilities</label>
+                    <div class="star-rating" data-rating="facilities">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="facilitiesRating" name="facilitiesRating" value="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedbackComments">Comments</label>
+                    <textarea id="feedbackComments" name="feedbackComments" rows="5" placeholder="Please share your experience, suggestions, or any concerns..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recommendClinic">Would you recommend our clinic to others?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="recommendClinic" value="yes"> Yes, definitely
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="recommendClinic" value="maybe"> Maybe
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="recommendClinic" value="no"> No
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="allowPublicReview" name="allowPublicReview">
+                        I allow this review to be published on your website (name will be kept private)
+                    </label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                    <button type="reset" class="btn btn-outline">Clear Form</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="container">
+            <div class="social-content">
+                <h2>Connect With Us</h2>
+                <p>Follow us on social media for health tips, clinic updates, and dermatology insights</p>
+                
+                <div class="social-icons-large">
+                    <a href="#" class="social-icon-large" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon-large" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon-large" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon-large" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon-large" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-cta">
+                    <h4>Need Immediate Assistance?</h4>
+                    <p>Our team is ready to help you with any questions or concerns</p>
+                    <div class="quick-contact">
+                        <a href="tel:+254712345678">Call Now</a>
+                        <a href="mailto:info@dermacare.com">Email Us</a>
+                        <a href="booking.html">Book Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>DermaCare</h3>
+                    <p>Providing exceptional dermatological care with a patient-centered approach since 2005.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Our Doctors</a></li>
+                        <li><a href="booking.html">Book Appointment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="services.html#cancer">Skin Cancer Screening</a></li>
+                        <li><a href="services.html#surgical">Surgical Dermatology</a></li>
+                        <li><a href="services.html#pediatric">Pediatric Dermatology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Kenyatta Avenue, Nairobi</li>
+                        <li><i class="fas fa-phone"></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@dermacare.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DermaCare Clinic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-check-circle"></i>
+                <h2>Message Sent Successfully</h2>
+            </div>
+            <div class="modal-body">
+                <p>Thank you for contacting DermaCare Clinic. We have received your message and will respond within 24 hours.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="closeSuccessModal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script>
+        // Additional JavaScript for contact page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Star rating functionality
+            const starRatings = document.querySelectorAll('.star-rating');
+            
+            starRatings.forEach(rating => {
+                const stars = rating.querySelectorAll('.star');
+                const ratingType = rating.getAttribute('data-rating');
+                const hiddenInput = document.getElementById(ratingType + 'Rating');
+                
+                stars.forEach((star, index) => {
+                    star.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        hiddenInput.value = value;
+                        
+                        // Update star display
+                        stars.forEach((s, i) => {
+                            if (i < value) {
+                                s.classList.add('active');
+                            } else {
+                                s.classList.remove('active');
+                            }
+                        });
+                    });
+                    
+                    star.addEventListener('mouseover', function() {
+                        const value = this.getAttribute('data-value');
+                        stars.forEach((s, i) => {
+                            if (i < value) {
+                                s.style.color = 'var(--accent-color)';
+                            } else {
+                                s.style.color = 'var(--background-dark)';
+                            }
+                        });
+                    });
+                });
+                
+                rating.addEventListener('mouseleave', function() {
+                    const currentRating = hiddenInput.value;
+                    stars.forEach((s, i) => {
+                        if (i < currentRating) {
+                            s.style.color = 'var(--accent-color)';
+                        } else {
+                            s.style.color = 'var(--background-dark)';
+                        }
+                    });
+                });
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            const successModal = document.getElementById('successModal');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Here you would send the form data to the server
+                    // For now, we'll just show the success modal
+                    
+                    successModal.style.display = 'flex';
+                    contactForm.reset();
+                });
+            }
+            
+            // Feedback form submission
+            const feedbackForm = document.getElementById('feedbackForm');
+            
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Here you would send the feedback data to the server
+                    // For now, we'll just show an alert
+                    
+                    alert('Thank you for your feedback! We appreciate your input and will use it to improve our services.');
+                    feedbackForm.reset();
+                    
+                    // Reset star ratings
+                    starRatings.forEach(rating => {
+                        const stars = rating.querySelectorAll('.star');
+                        const ratingType = rating.getAttribute('data-rating');
+                        const hiddenInput = document.getElementById(ratingType + 'Rating');
+                        
+                        hiddenInput.value = '';
+                        stars.forEach(star => {
+                            star.classList.remove('active');
+                            star.style.color = 'var(--background-dark)';
+                        });
+                    });
+                });
+            }
+            
+            // Modal functionality
+            const closeModal = document.querySelector('.close-modal');
+            const closeSuccessModal = document.getElementById('closeSuccessModal');
+            
+            if (closeModal) {
+                closeModal.addEventListener('click', function() {
+                    successModal.style.display = 'none';
+                });
+            }
+            
+            if (closeSuccessModal) {
+                closeSuccessModal.addEventListener('click', function() {
+                    successModal.style.display = 'none';
+                });
+            }
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === successModal) {
+                    successModal.style.display = 'none';
+                }
+            });
+        });
+        
+        // Live chat function (placeholder)
+        function openLiveChat() {
+            alert('Live chat feature would be integrated here with a third-party service like Intercom, Zendesk, or Tawk.to');
+        }
+    </script>
+</body>
+</html>
